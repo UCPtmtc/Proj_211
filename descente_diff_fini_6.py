@@ -121,7 +121,7 @@ def calc_descente_diff_fini_6(img, params):
 
     pts_2d, pts_3d, img_out = retreive_coordinates(img) ## récupération des données d'entrée
     if pts_2d is None or pts_3d is None or pts_2d.shape[0] < 4:  ## on test la bonne detection du april tag, c'est à dire ses 4 coins
-        cv2_imshow("Pose Estimation", img_out)
+        cv2_imshow(img_out)
         cv2.waitKey(1) 
         return None, None, None, None, None, params
     
@@ -160,7 +160,7 @@ def calc_descente_diff_fini_6(img, params):
     for pt_proj in pts_proj:
         cv2.circle(img_out, (int(pt_proj[0]), int(pt_proj[1])), 5, (0, 255, 255), -1)
 
-    cv2_imshow("Pose Estimation", img_out)
+    cv2_imshow(img_out)
 
     return R, angles_deg, t, cost_history, iter_checkpoint, params
 
