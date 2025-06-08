@@ -128,7 +128,7 @@ def optimize_lamb(params, pts_2d, pts_3d, current_cost, current_lamb, direction)
         test_params[:9] = R_test.flatten()
         t_test = test_params[9:]
         test_proj = project_points(pts_3d, R_test, t_test, K)
-        if cost(test_proj, pts_2d) < current_cost and current_lamb<10e9 :
+        if cost(test_proj, pts_2d) < current_cost and current_lamb<10e12 :
             current_lamb *= 1.5
         else:
             break
@@ -140,7 +140,7 @@ def optimize_lamb(params, pts_2d, pts_3d, current_cost, current_lamb, direction)
         test_params[:9] = R_test.flatten()
         t_test = test_params[9:]
         test_proj = project_points(pts_3d, R_test, t_test, K)
-        if cost(test_proj, pts_2d) > current_cost and current_lamb<10e-8 :
+        if cost(test_proj, pts_2d) > current_cost and current_lamb<10e-12 :
             current_lamb *= 0.5
         else:
             break
