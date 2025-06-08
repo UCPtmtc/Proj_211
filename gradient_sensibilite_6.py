@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+from google.colab.patches import cv2_imshow
 import robotpy_apriltag as ap
 #import gradient_descente as g
 from . import fonction_sensibilite_6 as fs
