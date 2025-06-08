@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import robotpy_apriltag as ap
 #import gradient_descente as g
-import fonction_sensibilite_6 as fs
+from . import fonction_sensibilite_6 as fs
 
 ######################################################################################################################
 ####################### Initialisation ###############################################################################
