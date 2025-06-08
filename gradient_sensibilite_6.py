@@ -98,7 +98,7 @@ def optimize_lamb(params ,pts_2d,pts_3d, current_cost, current_lamb, direction):
         R = euler_to_R(gamma, beta, alpha)
         t = np.array([tx, ty, tz])
         pts_proj = project_points(pts_3d, R, t, K)
-        if cost(pts_proj, pts_2d) < current_cost and current_lamb<10e9 :
+        if cost(pts_proj, pts_2d) < current_cost and current_lamb<10e12 :
             current_lamb *= 1.5
         else :
             break
@@ -109,7 +109,7 @@ def optimize_lamb(params ,pts_2d,pts_3d, current_cost, current_lamb, direction):
         R = euler_to_R(gamma, beta, alpha)
         t = np.array([tx, ty, tz])
         pts_proj = project_points(pts_3d, R, t, K)
-        if cost(pts_proj, pts_2d) > current_cost and current_lamb>10e-8 :
+        if cost(pts_proj, pts_2d) > current_cost and current_lamb>10e-12 :
             current_lamb *= 0.5
         else :
             break
