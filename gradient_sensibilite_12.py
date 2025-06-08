@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from google.colab.patches import cv2_imshow as cv2g
+from google.colab.patches import cv2_imshow
 import robotpy_apriltag as ap
 import matplotlib.pyplot as plt
 from collections import deque
@@ -174,7 +174,7 @@ def calc_gradient_sensibilite_12(img, params):
 
     pts_2d, pts_3d, img_out = retreive_coordinates(img) ## récupération des données d'entrée
     if pts_2d is None or pts_3d is None or pts_2d.shape[0] < 4: ## on test la bonne detection du april tag, c'est à dire ses 4 coins
-        cv2g.imshow("Pose Estimation", img_out)
+        cv2_imshow("Pose Estimation", img_out)
         cv2.waitKey(1) 
         return None, None, None, None, None, params
 
@@ -227,7 +227,7 @@ def calc_gradient_sensibilite_12(img, params):
     pts_proj = project_points(pts_3d, R, t, K) ##on projete avec nos parametre finaux pour plot des points jaune là ou notre descente de gradient l'estime (control visuel)
     for pt_proj in pts_proj:
         cv2.circle(img_out, (int(pt_proj[0]), int(pt_proj[1])), 5, (0, 255, 255), -1)
-    cv2g.imshow("Pose Estimation", img_out)
+    cv2_imshow("Pose Estimation", img_out)
 
     return R, angles_deg, t, cost_history, iter_checkpoint, params
 
